@@ -26,7 +26,7 @@ class Simple_login {
  redirect(base_url('back/home_back'));
  }else{
  $this->CI->session->set_flashdata('sukses',"<div class=\"alert alert-danger\" id=\"alert\"><i class=\"glyphicon glyphicon-ok\"></i> Oops... Username/password salah</div>");
- redirect(base_url('front/log'));
+ redirect(base_url('welcome'));
  }
  return false;
  }
@@ -34,7 +34,7 @@ class Simple_login {
  public function cek_login() {
  if($this->CI->session->userdata('username') == '') {
  $this->CI->session->set_flashdata('sukses',"<div class=\"alert alert-danger\" id=\"alert\"><i class=\"glyphicon glyphicon-ok\"></i> Anda belum login !!! </div>");
-redirect(base_url('front/log'));
+redirect(base_url('welcome'));
  }
  }
  // Fungsi logout

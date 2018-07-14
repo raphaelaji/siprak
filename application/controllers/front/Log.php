@@ -23,15 +23,8 @@ class Log extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		//$this->load->view('welcome_message');
-		$this->load->view('layout/front/header');
-		$this->load->view('front/form_login');
-		$this->load->view('layout/front/footer');
-
-	}
-	function login(){
+	
+	public function login(){
 		//print_r($_POST);exit;
 			$valid = $this->form_validation;
 		//$data = array(
@@ -47,9 +40,9 @@ class Log extends CI_Controller {
 		$valid->set_rules('password','password','required');
 		if($valid->run()) {
 		
-		$this->simple_login->login($username,$password, base_url('back/home_back'), base_url('front/log'));
+		$this->simple_login->login($username,$password, base_url('back/home_back'), base_url('welcome'));
 		}
-		redirect(base_url('front/log'));
+		redirect(base_url('welcome'));
 	}
 	
 	public function logout() {
