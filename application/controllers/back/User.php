@@ -36,9 +36,9 @@ class User extends CI_Controller {
 		$this->load->view('back/user/user_profile',$data);
 		$this->load->view('layout/back/footer');
 	}
-	public function edit() {	
+	public function edit($id) {	
 
-		 $id= $this->session->userdata('id'); 
+		 //$id= $this->session->userdata('id'); 
          $data['data_user'] = $this->M_user->get_id($id);
          $data['data_level'] = $this->M_user->get_level();
 
@@ -65,7 +65,7 @@ class User extends CI_Controller {
 			'kode_pendaftaran' => $this->input->post('kode_pendaftaran'),
 			'id_level' => $this->input->post('id_level'),
 			'nama' => $this->input->post('nama'),
-			'alamat' => $this->input->post('alamat'),
+			'pass' => $this->input->post('password'),
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'username' => $this->input->post('username'),
 			'password' => md5($this->input->post('password')),
@@ -87,7 +87,7 @@ class User extends CI_Controller {
 			'kode_pendaftaran' => $this->input->post('kode_pendaftaran'),
 			'id_level' => '2',
 			'nama' => $this->input->post('nama'),
-			'alamat' => $this->input->post('alamat'),
+			'pass' => $this->input->post('password'),
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'username' => $this->input->post('username'),
 			'password' => md5($this->input->post('password')),

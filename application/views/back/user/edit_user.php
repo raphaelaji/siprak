@@ -57,13 +57,6 @@
                                                 <div class="input-group-addon"><i class="ti-user"></i></div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="alamat">Alamat</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Enter alamat" value="<?php echo $list['alamat']; ?>">
-                                                <div class="input-group-addon"><i class="ti-home"></i></div>
-                                            </div>
-                                        </div>
                                          <div class="form-group">
                                                         <label class="control-label">Jenis Kelamin</label>
                                                         <div class="radio-list">
@@ -91,7 +84,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputpwd1">Password</label>
                                             <div class="input-group">
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter pwd" value="">
+                                                <input type="text" class="form-control" name="password" id="password" placeholder="Enter pwd" value="<?php echo $list['pass']; ?>">
                                                 <div class="input-group-addon"><i class="ti-lock"></i></div>
                                             </div>
                                         </div>

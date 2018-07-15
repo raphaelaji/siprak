@@ -75,90 +75,6 @@ class Register extends CI_Controller {
 		$this->load->view('layout/back/footer');
 	}
 
-	public function tambah_anjing()
-	{
-		//print_r($_POST);exit;
-		$level= $this->session->userdata('level'); 
-                                if($level==1){
-		$this->form_validation->set_rules('id_user','id_user','required');
-		$this->form_validation->set_rules('tanggal_lahir','tanggal_lahir','required');
-		if($this->form_validation->run() == false){
-			$this->session->set_flashdata('sukses', "<div class=\"alert alert-danger\" id=\"alert\"><i class=\"\"><strong>error!</strong><br></i> silahkan pilih user dan inputkan tanggal lahir</div>");
-	redirect('back/register');
-		}else{
-	$data_anjing = array(
-			'kode_anjing' => $this->input->post('kode_anjing'),
-			'nama_anjing' => $this->input->post('nama_anjing'),
-			'jenis_anjing' => $this->input->post('jenis_anjing'),
-			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-			'id_user' => $this->input->post('id_user')
-			);
-//print_r($data_user);exit;
-	$this->M_anjing->tambah($data_anjing);
-	$this->session->set_flashdata('sukses', "<div class=\"alert alert-success\" id=\"alert\"><i class=\"\"></i> Registrasi data anjing berhasil</div>");
-	redirect('back/register');}}
-	
-	else {
-		
-			$id= $this->session->userdata('id'); 
-			$this->form_validation->set_rules('tanggal_lahir','tanggal_lahir','required');
-		if($this->form_validation->run() == false){
-			$this->session->set_flashdata('sukses', "<div class=\"alert alert-danger\" id=\"alert\"><i class=\"\"><strong>error!</strong><br></i> silahkan pilih user dan inputkan tanggal lahir</div>");
-	redirect('back/register');
-		}else {
-			//print_r($_POST);exit;
-		
-	$data_anjing = array(
-			'kode_anjing' => $this->input->post('kode_anjing'),
-			'nama_anjing' => $this->input->post('nama_anjing'),
-			'jenis_anjing' => $this->input->post('jenis_anjing'),
-			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-			'id_user' => $id
-			);
-//print_r($data_user);exit;
-	$this->M_anjing->tambah($data_anjing);
-	$this->session->set_flashdata('sukses', "<div class=\"alert alert-success\" id=\"alert\"><i class=\"\"></i> Registrasi data anjing berhasil</div>");
-	redirect('back/register');}}
-	}
-
-	public function tambah_anjing_pemeriksaan()
-	{
-		//print_r($_POST);exit;
-		$level= $this->session->userdata('level'); 
-                                if($level==1){
-		$this->form_validation->set_rules('id_user','id_user','required');
-		if($this->form_validation->run() == false){
-			$this->session->set_flashdata('sukses', "<div class=\"alert alert-danger\" id=\"alert\"><i class=\"\"><strong>error!</strong><br></i> silahkan pilih user</div>");
-	redirect('back/pemeriksaan');
-		}else{
-	$data_anjing = array(
-			'kode_anjing' => $this->input->post('kode_anjing'),
-			'nama_anjing' => $this->input->post('nama_anjing'),
-			'jenis_anjing' => $this->input->post('jenis_anjing'),
-			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-			'id_user' => $this->input->post('id_user')
-			);
-//print_r($data_user);exit;
-	$this->M_anjing->tambah($data_anjing);
-	$this->session->set_flashdata('sukses', "<div class=\"alert alert-success\" id=\"alert\"><i class=\"\"></i> Registrasi data anjing berhasil</div>");
-	redirect('back/pemeriksaan');}}
-	
-	else {
-		
-			$id= $this->session->userdata('id'); 
-			//print_r($_POST);exit;
-	$data_anjing = array(
-			'kode_anjing' => $this->input->post('kode_anjing'),
-			'nama_anjing' => $this->input->post('nama_anjing'),
-			'jenis_anjing' => $this->input->post('jenis_anjing'),
-			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-			'id_user' => $id
-			);
-//print_r($data_user);exit;
-	$this->M_anjing->tambah($data_anjing);
-	$this->session->set_flashdata('sukses', "<div class=\"alert alert-success\" id=\"alert\"><i class=\"\"></i> Registrasi data anjing berhasil</div>");
-	redirect('back/pemeriksaan');}
-	}
 	public function tambah_user()
 	{
 		//print_r($_POST);exit;
@@ -180,7 +96,7 @@ if ($cek > 0){
 	$data_user = array(
 			'kode_pendaftaran' => $this->input->post('kode_pendaftaran'),
 			'nama' => $this->input->post('nama'),
-			'alamat' => $this->input->post('alamat'),
+			'pass' => $this->input->post('password'),
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'username' => $this->input->post('username'),
 			'password' => md5($this->input->post('password')),

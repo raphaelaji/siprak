@@ -50,7 +50,9 @@ class M_user extends CI_Model {
 	}
 
 	public function get_level() {
-	$query = $this->db->get('tb_level','asc');
+    $this->db->from('tb_level');
+    $this->db->order_by("id_level","desc");
+	$query = $this->db->get();
 	return $query->result();
 	}
 	function get_last_id()
