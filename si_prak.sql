@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2018 at 01:21 PM
+-- Generation Time: Jul 15, 2018 at 02:12 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -122,6 +122,19 @@ CREATE TABLE `tb_pelajaran` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_praktikan`
+--
+
+CREATE TABLE `tb_praktikan` (
+  `id_praktikan` int(10) NOT NULL,
+  `id_user` int(10) DEFAULT NULL,
+  `id_ass_prak` int(10) DEFAULT NULL,
+  `id_dosen` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_prak_akhir`
 --
 
@@ -147,7 +160,7 @@ CREATE TABLE `tb_responsi` (
   `id_atr_prem2` int(10) DEFAULT NULL,
   `id_pelajaran` int(10) DEFAULT NULL,
   `id_kurikulum` int(10) DEFAULT NULL,
-  `creation_id` int(10) DEFAULT NULL
+  `id_dosen` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -164,7 +177,7 @@ CREATE TABLE `tb_sub_pelajaran` (
   `nama_sub` varchar(255) DEFAULT NULL,
   `nilai` float DEFAULT NULL,
   `creation_date` date DEFAULT NULL,
-  `creation_id` int(10) DEFAULT NULL
+  `id_ass_prak` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -177,7 +190,6 @@ CREATE TABLE `tb_user` (
   `id_user` int(10) NOT NULL,
   `kode_pendaftaran` varchar(255) NOT NULL,
   `nama` varchar(60) NOT NULL,
-  `alamat` varchar(225) NOT NULL,
   `jenis_kelamin` enum('L','P') NOT NULL,
   `username` varchar(225) NOT NULL,
   `password` varchar(225) NOT NULL,
@@ -189,11 +201,14 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `kode_pendaftaran`, `nama`, `alamat`, `jenis_kelamin`, `username`, `password`, `id_level`, `pass`) VALUES
-(2, 'PD-1001', 'asdf', 'dsf', 'L', 'd', '8277e0910d750195b448797616e091ad', 2, ''),
-(3, 'PD-1002', 'werty', 'coba', 'P', 'a', '0cc175b9c0f1b6a831c399e269772661', 1, ''),
-(4, 'PD-1003', 'dfgh', 'dsfgh', 'L', 's', '03c7c0ace395d80182db07ae2c30f034', 2, ''),
-(5, 'PD-1004', 'sd', '', 'L', 'abc', 'f9ac6b05beccb0fc5837b6a7fef4c1d3', 2, '');
+INSERT INTO `tb_user` (`id_user`, `kode_pendaftaran`, `nama`, `jenis_kelamin`, `username`, `password`, `id_level`, `pass`) VALUES
+(2, 'PD-1001', 'asdf', 'L', 'd', '8277e0910d750195b448797616e091ad', 2, ''),
+(3, 'PD-1002', 'werty', 'P', 'a', '0cc175b9c0f1b6a831c399e269772661', 1, ''),
+(4, 'PD-1003', 'dfgh', 'L', 's', '03c7c0ace395d80182db07ae2c30f034', 2, ''),
+(5, 'PD-1004', 'sd', 'L', 'abc', 'f9ac6b05beccb0fc5837b6a7fef4c1d3', 2, ''),
+(6, '', '', '', '', 'asd', 1, '7815696ecbf1c96e6894b779456d330e'),
+(7, 'PD-1005', 'dss', 'L', 'dss', '07304e56c452be73ad2b51a4647d0300', 2, 'dss'),
+(8, 'PD-1006', 'hu', 'L', 'hu', '18bd9197cb1d833bc352f47535c00320', 2, 'hu');
 
 --
 -- Indexes for dumped tables
@@ -252,6 +267,12 @@ ALTER TABLE `tb_pelajaran`
   ADD KEY `id_user` (`id_user`);
 
 --
+-- Indexes for table `tb_praktikan`
+--
+ALTER TABLE `tb_praktikan`
+  ADD PRIMARY KEY (`id_praktikan`);
+
+--
 -- Indexes for table `tb_prak_akhir`
 --
 ALTER TABLE `tb_prak_akhir`
@@ -269,7 +290,7 @@ ALTER TABLE `tb_responsi`
   ADD KEY `id_atr_prem2` (`id_atr_prem2`),
   ADD KEY `id_pelajaran` (`id_pelajaran`),
   ADD KEY `id_kurikulum` (`id_kurikulum`),
-  ADD KEY `creation_id` (`creation_id`);
+  ADD KEY `creation_id` (`id_dosen`);
 
 --
 -- Indexes for table `tb_sub_pelajaran`
@@ -278,7 +299,7 @@ ALTER TABLE `tb_sub_pelajaran`
   ADD PRIMARY KEY (`id_sub`),
   ADD KEY `id_pelajaran` (`id_pelajaran`),
   ADD KEY `id_user` (`id_user`),
-  ADD KEY `creation_id` (`creation_id`);
+  ADD KEY `creation_id` (`id_ass_prak`);
 
 --
 -- Indexes for table `tb_user`
@@ -301,7 +322,7 @@ ALTER TABLE `tb_kurikulum`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -347,7 +368,7 @@ ALTER TABLE `tb_responsi`
   ADD CONSTRAINT `tb_responsi_ibfk_1` FOREIGN KEY (`id_atr_prem2`) REFERENCES `tb_atr_perm2` (`id_atr_perm2`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_responsi_ibfk_2` FOREIGN KEY (`id_pelajaran`) REFERENCES `tb_pelajaran` (`id_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_responsi_ibfk_3` FOREIGN KEY (`id_kurikulum`) REFERENCES `tb_kurikulum` (`id_kurikulum`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_responsi_ibfk_4` FOREIGN KEY (`creation_id`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_responsi_ibfk_4` FOREIGN KEY (`id_dosen`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_sub_pelajaran`
@@ -355,7 +376,7 @@ ALTER TABLE `tb_responsi`
 ALTER TABLE `tb_sub_pelajaran`
   ADD CONSTRAINT `tb_sub_pelajaran_ibfk_1` FOREIGN KEY (`id_pelajaran`) REFERENCES `tb_pelajaran` (`id_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_sub_pelajaran_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_sub_pelajaran_ibfk_3` FOREIGN KEY (`creation_id`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_sub_pelajaran_ibfk_3` FOREIGN KEY (`id_ass_prak`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_user`
