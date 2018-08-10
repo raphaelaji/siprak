@@ -42,14 +42,7 @@
                                     <div class="control-group">
                                     <input type="hidden" name="id_user" class="form-control" value="<?php echo $list['id_user']; ?>" />
                                     </div>
-                                       <div class="control-group">
-                                    <label class="control-label">No Pendaftaran <i style="color:red">*</i></label>
-                                    <div class="controls">
-                                   
-                                        <input type="text" class="form-control" name="kode_pendaftaran" id="kode_pendaftaran" readonly="readonly" value="<?php echo $list['kode_pendaftaran']; ?>"/>
-                                        <small><?php echo form_error('kode') ?></small>
-                                    </div>
-                                </div>
+                                      
                                         <div class="form-group">
                                             <label for="exampleInputuname">Nama</label>
                                             <div class="input-group">
@@ -84,7 +77,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputpwd1">Password</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="password" id="password" placeholder="Enter pwd" value="<?php echo $list['pass']; ?>">
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter pwd" value="<?php echo $list['password']; ?>">
                                                 <div class="input-group-addon"><i class="ti-lock"></i></div>
                                             </div>
                                         </div>
