@@ -132,6 +132,7 @@ class M_user extends CI_Model {
     $query = $this->db->get('tb_user'); 
     	return $query->result();
 	}
+    
 	public function jumlah_user()
 	{
 		$this->db->select('*');
