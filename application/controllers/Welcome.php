@@ -29,24 +29,24 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		//$this->load->view('welcome_message');
-		 $kode = $this->M_user->get_last_id();
-		// print_r($kode);exit;
-        if ($kode) {
-            $cut_code = substr($kode->kode_pendaftaran, 3, 4);
+		// //$this->load->view('welcome_message');
+		//  $kode = $this->M_user->get_last_id();
+		// // print_r($kode);exit;
+  //       if ($kode) {
+  //           $cut_code = substr($kode->kode_pendaftaran, 3, 4);
             
-            $k = $cut_code+1;//print_r($k);exit;
-            if ($k == 1) {
-                $kode1 = "PD-1001";
-            }else{
-                $kode1 = "PD-".$k;
-            }
-        }else{
-            $kode1 = "PD-1001";
-        }
-        $data['kode'] = $kode1;
+  //           $k = $cut_code+1;//print_r($k);exit;
+  //           if ($k == 1) {
+  //               $kode1 = "PD-1001";
+  //           }else{
+  //               $kode1 = "PD-".$k;
+  //           }
+  //       }else{
+  //           $kode1 = "PD-1001";
+  //       }
+        // $data['kode'] = $kode1;
 		$this->load->view('layout/front/header');
-		$this->load->view('front/index',$data);
+		$this->load->view('front/index');
 		$this->load->view('layout/front/footer');
 	}
 
