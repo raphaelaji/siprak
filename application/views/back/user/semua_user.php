@@ -22,14 +22,11 @@
 								<div class="row">
 										<div class="col-sm-12">
 												<div class="white-box">
-														<h3 class="box-title m-b-0">Data User</h3>
-														<p class="text-muted m-b-30">Data Semua User</p>
 														<div class="table-responsive">
 																<table id="myTable" class="table table-striped">
 																			<thead>
 																				<tr>
 																					<th >No</th>
-																					<th >Kode Pendaftaran</th>
 																					<th >Nama</th>
 																					<th >Jenis Kelamin</th>
 																					<th >Username</th>
@@ -45,7 +42,6 @@
 													foreach($data_user as $list) { ?>
 													<tr>
 														<td><?php echo ++$no ?></a></td>
-														<td><?php echo $list['kode_pendaftaran']; ?></td>
 														<td><?php echo $list['nama']; ?></td>
 														<td><?php echo $list['jenis_kelamin']; ?></td>
 														<td><?php echo $list['username']; ?></td>
