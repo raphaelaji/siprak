@@ -25,12 +25,19 @@
                                  <input type="hidden" name="id_user" class="form-control" value="<?php echo $list['id_user']; ?>" />
                                 </div>
                                 <div class="row text-center m-t-10">
-                                    <div class="col-md-6 b-r"><strong>Kode Pendaftaran</strong>
-                                        <p><?php echo $list['kode_pendaftaran']; ?></p>
-                                    </div>
-                                    <div class="col-md-6"><strong>Nama</strong>
+                                    <div class="col-md-6 b-r"><strong>Nama</strong>
                                         <p><?php echo $list['nama']; ?></p>
                                     </div>
+                                    <div class="col-md-6"><strong>Jenis Kelamin</strong>
+                                        <p><?php $list['jenis_kelamin'];
+                                        if ($list['jenis_kelamin']=="L") {
+                                            echo "Laki-Laki";
+                                         }
+                                         else {
+                                             echo "Perempuan";
+                                         } ?></p>
+                                    </div>
+                                    
                                 </div>
                                 <!-- /.row -->
                                 <hr>
@@ -47,25 +54,13 @@
                                 <hr>
                                 <!-- .row -->
                                  <div class="row text-center m-t-10">
-                                    <div class="col-md-12"><strong>Jenis Kelamin</strong>
-                                        <p><?php $list['jenis_kelamin'];
-                                        if ($list['jenis_kelamin']=="L") {
-                                            echo "Laki-Laki";
-                                         }
-                                         else {
-                                             echo "Perempuan";
-                                         } ?></p>
-                                    </div>
+                                    
                                 </div>
-                                <div class="row text-center m-t-10">
-                                    <div class="col-md-12"><strong>Alamat</strong>
-                                        <p><?php echo $list['alamat']; ?></p>
-                                    </div>
-                                </div>
+                
                                 <hr>
                                 <!-- /.row -->
                                 <div class="col-md-4 col-sm-4 text-center">
-                                     <a href="<?php echo base_url() ?>back/user/edit" class="btn btn-success"> Edit User Profile </a> </div>
+                                     <a href="<?php echo base_url() ?>back/user/edit/<?php echo $list['id_user'] ?>" class="btn btn-success"> Edit User Profile </a> </div>
                             </div> <?php } ?>
                         </div>
                     </div>
