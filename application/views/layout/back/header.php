@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>asset/back/plugins/images/favicon.png">
-    <title>Elite Hospital Admin Template - Hospital admin dashboard web app kit</title>
+    <title>SPK Nilai Praktikum</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>asset/back/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/back/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
@@ -20,6 +20,8 @@
     <link href="<?php echo base_url() ?>asset/back/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?php echo base_url() ?>asset/back/css/style.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>asset/back/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>asset/back/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css" rel="stylesheet">
                               
     <!-- color CSS -->
     <link href="<?php echo base_url() ?>asset/back/css/colors/megna.css" id="theme" rel="stylesheet">
