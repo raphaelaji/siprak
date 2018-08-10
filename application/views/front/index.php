@@ -15,64 +15,13 @@
 							<div class="form-wrap">
 								<div class="tab">
 									<ul class="tab-menu">
-										<li class="active gtco-first"><a href="#" data-tab="signup">Sign up</a></li>
-										<li class="gtco-second"><a href="#" data-tab="login">Login</a></li>
+										
+										<li class="active gtco-first"><a href="#" data-tab="login">Login</a></li>
 									</ul>
 									<div class="tab-content">
-										<div class="tab-content-inner active" data-content="signup">
-											<form class="form-horizontal" method="post" action="<?php echo base_url() ?>front/register/tambah_aksi">
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="kode_pendaftaran">Kode Pendaftaran</label>
-														<input type="text" class="form-control margin-bottom-20" name="kode_pendaftaran" id="kode_pendaftaran" readonly="readonly" value="<?php echo $kode; ?>"/>
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="Name">Name</label>
-														<input type="text" class="form-control" id="name" name="nama">
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label class="control-label">Jenis Kelamin 	<span class="color-red">*</span></label>
-														<div class="radio-list">
-														<label class="radio-inline p-0">
-															<div class="radio radio-info">
-															<input type="radio" name="jenis_kelamin" id="radio1" value="L">
-															<label for="radio1">Laki-laki</label>
-															</div>
-														</label>
-														<label class="radio-inline">
-															<div class="radio radio-info">
-															<input type="radio" name="jenis_kelamin" id="radio2" value="P">
-															<label for="radio2">Perempuan </label>
-															</div>
-														</label>
-														</div>
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="username">Username or Email</label>
-														<input type="text" class="form-control" id="username" name="username">
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="password">Password</label>
-														<input type="text" class="form-control" id="password" name="password">
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<input type="submit" class="btn btn-primary" value="Sign up">
-													</div>
-												</div>
-											</form>	
-										</div>
+										
 
-										<div class="tab-content-inner" data-content="login">
+										<div class="tab-content-inner active" data-content="login">
 											<form action="<?php echo base_url(); ?>front/log/login" class="login-page" method="POST">
 												<div class="row form-group">
 													<div class="col-md-12">
