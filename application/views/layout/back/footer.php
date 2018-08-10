@@ -7,10 +7,12 @@
     <!-- /#wrapper -->
     <!-- jQuery -->
     <script src="<?php echo base_url() ?>asset/back/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>asset/back/jquery-3.1.1.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url() ?>asset/back/bootstrap/dist/js/tether.min.js"></script>
     <script src="<?php echo base_url() ?>asset/back/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>asset/back/plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <script src="<?php echo base_url() ?>asset/back/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
     <!-- Menu Plugin JavaScript -->
     <script src="<?php echo base_url() ?>asset/back/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
